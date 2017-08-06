@@ -2,8 +2,7 @@
  * 检查用户注册的用户名或电话号码是否已经存在
  * 返回类型为JSON
  * 成功返回{"status":"OK","code":"0"}
- * 失败返回{"status":"userName already exist","code":"101"},用户名已存在
- * 或{"status":"phoneNum already exist","code":"102"}，电话号已注册
+ * 失败返回类型对照错误码
  * */
 
 package myservice;
@@ -45,10 +44,10 @@ public class CheckUserAlreadyExist extends JSONSupport{
 			return SUCCESS;
 		} catch (ClassNotFoundException e) {
 			dataMap.put("status", "error");
-			dataMap.put("code", "103");
+			dataMap.put("code", 103);
 		} catch (SQLException e) {
 			dataMap.put("status", "error");
-			dataMap.put("code", "104");
+			dataMap.put("code", 104);
 		}
 		return SUCCESS;
 	}

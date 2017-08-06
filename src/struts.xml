@@ -6,9 +6,10 @@
 <struts>
     <package name="default" namespace="/" extends="struts-default,json-default">
         <action name="CheckUserAlreadyExist" class="myservice.CheckUserAlreadyExist" method="check">
-           	<result type="json">
-        		<param name="root">dataMap</param>
-        	</result>
+           	<result type="json"><param name="root">dataMap</param></result>
+        </action>
+        <action name="UserSignUp" class="myservice.SignUp" method="signUp">
+        	<result type="json"><param name="root">dataMap</param></result>
         </action>
     </package>
 </struts>
