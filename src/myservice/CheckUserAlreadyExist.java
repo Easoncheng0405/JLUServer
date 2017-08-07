@@ -25,8 +25,8 @@ public class CheckUserAlreadyExist extends JSONSupport{
 			String sql="select * from user where phone="+dealInfo(phone);
 			ResultSet rs=stmt.executeQuery(sql);
 			while(rs.next()) {
-				dataMap.put("status", "error");
-				dataMap.put("code", 102);
+				dataMap.put("status", "error");     
+				dataMap.put("code", 102);     //电话号已注册
 				closeDataBase(conn);
 				return SUCCESS;
 			}
@@ -34,7 +34,7 @@ public class CheckUserAlreadyExist extends JSONSupport{
 			rs=stmt.executeQuery(sql);
 			while(rs.next()) {
 				dataMap.put("status", "error");
-				dataMap.put("code", 101);
+				dataMap.put("code", 101);      //用户名已使用
 				closeDataBase(conn);
 				return SUCCESS;
 			}
@@ -44,10 +44,10 @@ public class CheckUserAlreadyExist extends JSONSupport{
 			return SUCCESS;
 		} catch (ClassNotFoundException e) {
 			dataMap.put("status", "error");
-			dataMap.put("code", 103);
+			dataMap.put("code", 103);       //mysql驱动异常
 		} catch (SQLException e) {
 			dataMap.put("status", "error");
-			dataMap.put("code", 104);
+			dataMap.put("code", 104);       //mysql操作异常
 		}
 		return SUCCESS;
 	}
